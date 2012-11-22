@@ -17,6 +17,15 @@
 使用jinja2作为模板引擎。前台页面用HTML，CSS实现，由后台通过jinja2添加内容。
 时间控制和自动提交控制，还有防止复制，粘贴，右键等功能由Javascript实现。
 
+###架设方法
+- 下载源码：`git clone git@github.com:ma6174/osweb.git`
+- 安装python相关模块
+> `easy_install web.py`  
+  `easy_install jinja2`
+
+- 执行：`python osweb.py 80`
+- 本地访问：`http://127.0.0.1/`
+
 ###其他
 - 前台美工：zcz
 - 后台设计：me
