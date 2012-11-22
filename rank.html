@@ -20,12 +20,19 @@
         <form name="myform" action="." method="POST" AUTOCOMPLETE="OFF">
             <table align=center >
                 {% for i in num %}
-                <tr><td width="20%"><b>题目{{i+1}}</b></td><td>{{problem[i]}}</td></tr>
-                <tr><td><b>答案</b></td><td>
-                {% for j in answer[i] %}
-                {{j}},
-                {% endfor %}
-        </td></tr>
+                <tr><td width="20%" id="proc" style="background-color:#BBBBBB"><b>题目{{i+1}}</b></td><td style="background-color:#BBBBBB">{{problem[i]}}</td></tr>
+                <tr><td><b>您的答案</b></td><td>
+                    {% for j in err_ans[i] %}
+                    {% if j != '' %}
+                    {{j}}，
+                    {% endif %}
+                    {% endfor %}
+            </td></tr>
+                <tr><td><b>正确答案</b></td><td>
+                    {% for j in answer[i] %}
+                    {{j}}，
+                    {% endfor %}
+                </td></tr>
                 {% endfor %}
             </table><br/>
             <div align="center">
