@@ -22,7 +22,7 @@
                     {% for i in num %}
                     <tr><td width="20%" id="proc" style="background-color:#BBBBBB"><b>题目{{i+1}}</b></td><td style="background-color:#BBBBBB">{{problem[i]}}</td></tr>
                     <tr><td><b>您的答案</b></td><td>
-                    <pre>{% for j in err_ans[i] %}{% if j != '' %}{{j}}，{% endif %}{% endfor %}</pre>
+                    <xmp>{% for j in err_ans[i] %}{% if j != '' %}{{j}}，{% endif %}{% endfor %}</xmp>
                     </td></tr>
                     <tr><td><b>正确答案</b></td><td>
                     <code>
