@@ -1,0 +1,34 @@
+            #main{width:80%;margin:0 auto;font-size:30px;}
+            #main1{width:80%;margin:0 auto;font-size:30px;}
+            #main2{width:80%;margin:0 auto;font-size:30px;}
+            #main3{width:80%;margin:0 auto;font-size:30px;}
+            #tab
+            {
+                font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+                width:80%;
+                border-collapse:collapse;
+
+            }
+            table{
+                width:80%;
+                border:1px solid #1A5CC8;
+                border-collapse:collapse;
+                cellpadding="1";
+            }
+            th{
+                font-size:1.1em;
+                text-align:center;
+                padding-top:4px;
+                padding-bottom:4px;
+                background-color:#1A5CC8;
+                color:#ffffff;
+
+            }
+            td{
+                font-size:1em;
+                width:"12%";
+                height:40px;
+                text-align:center;
+                border:1px solid #1A5CC8;
+                
+            }

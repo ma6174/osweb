@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta http-equiv="refresh" content="{{time}};"url="rank.html">
+        <title>OS SecondPage</title> 
+        <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+        <link rel="stylesheet" type="text/css" href="/static/os.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript">
+            var t={{time}};
+function showTime()
+{
+    var i=0;
+    updateTime(t);
+    while(t>0)
+    {
+        t--;
+        i++;
+        setTimeout("updateTime("+t+")", 1000*i);           
+    }  
+}
+function updateTime(t)
+{           
+    document.getElementById("main").innerHTML="left"+"\t"+t+"\t"+"second";
+    if(t==0)
+    {
+        //            window.alert("timeover"); 
+        //            document.myform.action="/test/?action=/test/" //设置处理程序
+        //            document.myform.action=".";
+        document.myform.submit.click(); //提交表单
+    }
+    //    {window.alert("timeover");} 
+} 
+var score=100;
+function showScore()
+{
+    document.getElementById("main1").innerHTML="your score:"+"<br/>"+score;
+}
+var range=1;
+function showRange()
+{
+    document.getElementById("main2").innerHTML= "your rank"+"\t"+range;   
+}  
+</script>
+    </head>
+    <body  oncontextmenu=self.event.returnValue=false onload="showTime()">
+        <a href="/">返回首页</a>
+        <h1 align="center" >操作系统词汇大比拼</h1>
+        <center><font id="main" style="color:red">0</font></center>
+        <div id="main22" align="center"style="color:red"></div>
+        <form name="myform" action="." method="POST" AUTOCOMPLETE="OFF">
+            <table align=center calss="tab">
+                <tr>
+                    <th>problem</th>
+                    <th>answer1</th>
+                    <th>answer2</th>
+                    <th>answer3</th>
+                    <th>answer4</th>
+                    <th>answer5</th>
+                </tr>
+
+                {% for j in num %}
+                <tr>
+                    <td><input type="hidden" name="A{{j}}" value="{{problem[j]}}" AUTOCOMPLETE="OFF">{{problem[j]}}</td>
+                    {% for i in td %}
+                    <td><input type="text" name="{{i}}{{j}}" AUTOCOMPLETE="OFF"  oncopy="document.selection.empty()"  onpaste="return false" style="font-size:20px;font-weight:bold;width:100%;height:100%;" size="10"></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <br/>
+            </table><br/>
+            <div align="center">
+                <input type="submit" name="submit" id="submit" value="Submit" style="width:100px;height:50px;font-size:20px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" name="start" id="start" value="Restart" style="width:100px;height:50px;font-size:20px;" onclick="location.reload()">
+            </form>
+        </div>
+    </body>
+</html>
