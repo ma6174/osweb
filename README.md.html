@@ -1,0 +1,44 @@
+<p><head><meta charset="UTF-8"></head></p>
+
+<h1>操作系统词汇在线测试软件</h1>
+
+<h3>功能</h3>
+
+<ul>
+<li>测试操作系统词汇的掌握程度</li>
+<li>可以选择难度系数</li>
+<li>自动根据难度系数和空数确定提交时间</li>
+<li>时间到自动提交</li>
+<li>随机抽取题目</li>
+<li>测试页面防止复制，防止粘贴，防止右键</li>
+<li>自动计算成绩</li>
+<li>自动统计排名</li>
+<li>自动给出正确答案</li>
+</ul>
+
+<h3>实现</h3>
+
+<p>整个程序用python的web.py模块进行驱动，使用sqlite3数据库存储题目和排名数据。
+使用jinja2作为模板引擎。前台页面用HTML，CSS实现，由后台通过jinja2添加内容。
+时间控制和自动提交控制，还有防止复制，粘贴，右键等功能由Javascript实现。</p>
+
+<h3>架设方法</h3>
+
+<ul>
+<li>下载源码：<code>git clone git@github.com:ma6174/osweb.git</code></li>
+<li><p>安装python相关模块</p>
+
+<blockquote>
+  <p><code>easy_install web.py</code> <br />
+<code>easy_install jinja2</code></p>
+</blockquote></li>
+<li><p>执行：<code>python osweb.py 80</code></p></li>
+<li>本地访问：<code>http://127.0.0.1/</code></li>
+</ul>
+
+<h3>其他</h3>
+
+<ul>
+<li>前台美工：zcz</li>
+<li>后台设计：me</li>
+</ul>

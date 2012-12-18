@@ -66,7 +66,7 @@ class OS:
     def get_answer(self,problem):
         conn = sqlite3.connect("os.db")
         cur = conn.cursor()
-        answer = cur.execute("select answer from os where problem='%s'"%problem)
+        answer = cur.execute("select upper(answer) from os where problem='%s'"%problem)
         ans_ret=[]
         for row in answer:
             ans_ret.append(row[0])
@@ -163,6 +163,8 @@ class TEST():
             tag=0
             for line in map(chr,range(66,71)):#65-71/
                 a = "%s%s"%(line,row)
+                input[a]=input[a].strip().upper() #删除用户输入的两边空格，并将字母转成大写
+#                print input[a]
                 user_all_ans.append(input[a])
 #                    print input[a]
                 #回答正确的标准：输入的信息在正确答案中并且输入的信息不重复
@@ -197,7 +199,6 @@ class INDEX():
             return template.render()
         except:
             return '<h1>System Error<br/><br/><a href="/">back</a></h1>'
-            
 
 if __name__=="__main__":
     app.run()
