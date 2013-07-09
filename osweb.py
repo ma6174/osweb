@@ -7,7 +7,8 @@ import datetime
 from jinja2 import Environment, PackageLoader
 #url设置
 urls = (
-    '/',"INDEX",
+#    '/',"INDEX",
+    '/',"TEST",
     '/test/(.*)','TEST',
 )
 app = web.application(urls,globals())
@@ -111,7 +112,7 @@ class TEST():
         '3.0':4,
     }
     #GET方法，获取题目
-    def GET(self,args):
+    def GET(self,args = None):
         try:
             TEST.start_time=datetime.datetime.now() #开始计时
             input = web.input()                     #获取输入
@@ -137,7 +138,7 @@ class TEST():
             return '<h1>System Error<br/><br/><a href="/">back</a></h1>'
 
     #POST方法，获取用户提交的数据并进行处理
-    def POST(self,name):
+    def POST(self,name=None):
 #        try:
         end_time=datetime.datetime.now()
 #            print TEST.start_time,end_time
@@ -155,8 +156,8 @@ class TEST():
         for row in range(0,6):#1-6
 #                if TEST.session==1:     #防止后退以后不刷新而而直接做题
 #                    return "<h1>请刷新页面后再开始做题</h1>"
-            if input["A%s"%row] not in TEST.problem:#判断题目是否在题库中，防止非法提交
-                return '<h1>Please refresh before test<br/><br/><a href="/test/">back</a></h1>'
+#            if input["A%s"%row] not in TEST.problem:#判断题目是否在题库中，防止非法提交
+#                return '<h1>Please refresh before test<br/><br/><a href="/test/">back</a></h1>'
             std_ans,num= self.os.get_answer(input["A%s"%row])
             user_ans = []
             user_all_ans = []
@@ -194,11 +195,11 @@ class TEST():
 class INDEX():
     def GET(self):
         try:
-        env = Environment(loader=PackageLoader('osweb', './'))
-        template = env.get_template('index.html')
-        return template.render()
+            env = Environment(loader=PackageLoader('osweb', './'))
+            template = env.get_template('index.html')
+            return template.render()
         except:
-        return '<h1>System Error<br/><br/><a href="/">back</a></h1>'
+            return '<h1>System Error<br/><br/><a href="/">back</a></h1>'
 
 if __name__=="__main__":
     app.run()
